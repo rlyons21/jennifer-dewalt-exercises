@@ -1,0 +1,70 @@
+body{
+	text-align: center;
+	min-height:100vh;
+}
+
+.fixButton{
+	margin-top:100px;
+	height:200px;
+	width:200px;
+	border-radius: 50%;
+	background:#FF492E;
+	color:white;
+	font-family: Arial;
+	font-weight:bold;
+	font-size:30px;
+}
+
+.fixButton:focus{
+	outline: 0;
+}
+
+.beforeFix{
+	display:inline;
+}
+
+.afterFix{
+	display:none;
+}
+
+.progressBackground{
+	display:none;
+	justify-content: center;
+	position:absolute;
+	top:0;
+	left:0;
+	height:100vh;
+	width:100%;
+	background-color:rgba(0, 0, 0, 0.5);
+}
+
+.progressContainer{
+	align-items:center;
+	margin-top:160px;
+	height:100px;
+	width:450px;
+	background-color:#232323;
+	border-radius: 4px;
+}
+
+.barContainer{
+	margin-left:30px;
+	height:10px;
+	width:380px;
+	border-radius: 8px;
+	border: 4px solid black;
+	background-color:#3D3D3D;
+}
+
+.progressBar{
+	height:100%;
+	width:1%;
+	background-color:#2EE1A6;
+	border-radius:8px;
+}
+
+.fix-text{
+	font-family: Arial;
+	font-size:20px;
+	color: #2EE1A6;
+}
