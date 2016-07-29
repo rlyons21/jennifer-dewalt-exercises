@@ -24,7 +24,14 @@ window.addEventListener("load", function(){
 		var guess = document.getElementsByClassName("response");
 		count +=1;
 
-		checkWord(guess[0].value,word[0].innerHTML, count);
+		var check = checkWord(guess[0].value,word[0].innerHTML, count);
+		
+		if(check=="wrong-new" || check == "right"){
+			count = 0;
+			getWord();
+			guess[0].value = "";
+		}
+
 		scoreContainer[0].innerHTML = "Score: " + score;
 
 	});
@@ -33,14 +40,14 @@ window.addEventListener("load", function(){
 	function checkWord(guess, word,count){
 		if(count%3 == 0 && guess != word){
 			score -= 1;
-			count = 0;
-			getWord();
+			return "wrong-new";
 		}
 		if(guess == word){
 			score +=1;
-			count = 0;
-			getWord();
-		} 
+			return "right";
+		}else{
+			return "wrong";
+		}
 	}
 
 	function getWord(){
