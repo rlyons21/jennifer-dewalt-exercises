@@ -22,22 +22,25 @@ window.addEventListener("load", function(){
 	submit[0].addEventListener("click", function(form){
 		form.preventDefault();
 		var guess = document.getElementsByClassName("response");
+		count +=1;
 
-		debugger;
-		checkWord(guess[0].value,word[0].innerHTML);
-
+		checkWord(guess[0].value,word[0].innerHTML, count);
+		scoreContainer[0].innerHTML = "Score: " + score;
 
 	});
 
 
-	function checkWord(guess, word){
+	function checkWord(guess, word,count){
+		if(count%3 == 0 && guess != word){
+			score -= 1;
+			count = 0;
+			getWord();
+		}
 		if(guess == word){
 			score +=1;
-			scoreContainer[0].innerHTML = "Score: " + score;
-		} else {
-			score -= 1;
-			scoreContainer[0].innerHTML = "Score: " + score;
-		}
+			count = 0;
+			getWord();
+		} 
 	}
 
 	function getWord(){
