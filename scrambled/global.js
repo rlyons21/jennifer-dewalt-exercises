@@ -6,6 +6,7 @@ window.addEventListener("load", function(){
 	var score = 0;
 	var count = 0;
 	var submit = document.getElementsByClassName("submit_btn");
+	var info = document.getElementsByClassName("gameInfo");
 
 	play_button.addEventListener("click", function(){
 		var intro = document.getElementsByClassName("directions");
@@ -23,6 +24,13 @@ window.addEventListener("load", function(){
 		form.preventDefault();
 		var guess = document.getElementsByClassName("response");
 		count +=1;
+		if(count==1){
+			info[0].innerHTML = "Incorrect! 2 chances left";
+		}
+		if(count == 2){
+			info[0].innerHTML = "Incorrect! 1 chances left";
+		}
+		
 
 		var check = checkWord(guess[0].value,word[0].innerHTML, count);
 		
@@ -30,6 +38,7 @@ window.addEventListener("load", function(){
 			count = 0;
 			getWord();
 			guess[0].value = "";
+			info[0].innerHTML = "Here is your next word";
 		}
 
 		scoreContainer[0].innerHTML = "Score: " + score;
